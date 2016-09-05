@@ -24,7 +24,7 @@
   ],
   "author": "Daniel Lim",
   "license": "ISC",
-  "devDependencies" {
+  "devDependencies": {
       "browserify": "*",
       "flux": "*",
       "gulp": "*",
@@ -36,7 +36,6 @@
     "react" : "^0.14.7",
     "react-dom" : "^0.14.7"
   },
-
   "bugs": {
     "url": "https://github.com/profoundhub/Movie-Search/issues"
   },
