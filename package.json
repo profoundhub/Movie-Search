@@ -30,7 +30,7 @@
       "gulp": "*",
       "reactify": "*",
       "vinyl-source-stream": "*",
-      "onject-assign": "*"
+      "object-assign": "*"
   },
   "dependencies": {
     "react" : "^0.14.7",
