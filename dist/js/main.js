@@ -19758,7 +19758,13 @@ var AppDispatcher = require('../dispatcher/AppDispatcher');
 var AppConstants = require('../constants/AppConstants');
 
 var AppActions = {
-
+    searchMovies: function(movie) {
+        // console.log('Searching for movie: ' + movie.title);
+        AppDispatcher.handleViewAction({
+            actionType: AppConstants.SEARCH_MOVIES,
+            movie: movie
+        });
+    }
 }
 
 module.exports = AppActions;
@@ -19802,7 +19808,12 @@ var SearchForm = React.createClass({displayName: "SearchForm",
   onSubmit: function(e) {
       e.preventDefault();
 
-      console.log(this.refs.title.value);
+      // console.log(this.refs.title.value);
+      var movie = {
+        title: this.refs.title.value.trim()
+      }
+
+      AppActions.searchMovies(movie);
   }
 });
 
