@@ -19789,7 +19789,7 @@ var SearchForm = React.createClass({displayName: "SearchForm",
       return(
         React.createElement("div", {className: "search-form"}, 
             React.createElement("h1", {className: "text-center"}, "Search For A Movie"), 
-            React.createElement("form", null, 
+            React.createElement("form", {onSubmit: this.onSubmit}, 
                 React.createElement("div", {className: "form-group"}, 
                     React.createElement("input", {type: "text", className: "form-control", ref: "title", placeholder: "Enter A Movie Title ..."})
                 ), 
@@ -19797,7 +19797,13 @@ var SearchForm = React.createClass({displayName: "SearchForm",
             )
         )
       )
-    }
+  },
+
+  onSubmit: function(e) {
+      e.preventDefault();
+
+      console.log(this.refs.title.value);
+  }
 });
 
 module.exports = SearchForm;
