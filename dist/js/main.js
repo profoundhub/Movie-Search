@@ -19799,7 +19799,7 @@ var SearchForm = React.createClass({displayName: "SearchForm",
                 React.createElement("div", {className: "form-group"}, 
                     React.createElement("input", {type: "text", className: "form-control", ref: "title", placeholder: "Enter A Movie Title ..."})
                 ), 
-                React.createElement("button", {className: "btn btn-primary btn-block"}, "Search Movie")
+                React.createElement("button", {className: "btn btn-primary btn-block"}, "Search Movies")
             )
         )
       )
