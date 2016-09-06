@@ -1,15 +1,14 @@
-var React = require('react');
-var AppActions = require('../actions/AppActions');
-var AppStore = require('../stores/AppStores');
+var Dispatcher = require('flux').Dispatcher;
+var assign = require('object-assign');
 
-var App = React.createClass({
-    render: function() {
-      return(
-        <div>
-            My App
-        </div>
-      )
+var AppDispatcher = assign(new Dispatcher() {
+    handleViewAction: function(action) {
+        var playload = {
+            source: 'VIEW_ACTION',
+            action: action
+        }
+        this.dispatch(payload)
     }
 });
 
-module.exports = App;
+module.exports = AppDispatcher;
