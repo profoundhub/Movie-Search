@@ -19152,7 +19152,11 @@ ReactDOM.render(
   document.getElementById('app')
 );
 },{"./components/App":160,"./utils/AppAPI.js":163,"react":158,"react-dom":29}],162:[function(require,module,exports){
-
-},{}],163:[function(require,module,exports){
-
-},{}]},{},[161]);
+var React = require('react');
+var AppActions = require('../actions/AppActions');
+var AppStore = require('../stores/AppStores');
+},{"../actions/AppActions":159,"../stores/AppStores":162,"react":158}],163:[function(require,module,exports){
+var React = require('react');
+var AppActions = require('../actions/AppActions');
+var AppStore = require('../stores/AppStores');
+},{"../actions/AppActions":159,"../stores/AppStores":162,"react":158}]},{},[161]);
