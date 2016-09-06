@@ -9,7 +9,7 @@ var CHANGE_EVENT = 'change';
 var _movies = [];
 var _selected = '';
 
-var AppStores = assign({}, EventEmitter.prototype, {
+var AppStore = assign({}, EventEmitter.prototype, {
     emitChange: function() {
       this.emit(CHANGE_EVENT);
     },
@@ -20,3 +20,19 @@ var AppStores = assign({}, EventEmitter.prototype, {
       this.remove('change', callback);
     }
 });
+
+AppDispatcher.register(function(payload) {
+    var action = payload.action;
+
+    switch (action.actionType) {
+        case expression:
+
+            break;
+        default:
+
+    }
+
+    return true;
+});
+
+module.exports = AppStore;
