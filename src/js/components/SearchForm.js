@@ -7,7 +7,7 @@ var SearchForm = React.createClass({
       return(
         <div className="search-form">
             <h1 className="text-center">Search For A Movie</h1>
-            <form>
+            <form onSubmit={this.onSubmit}>
                 <div className="form-group">
                     <input type="text" className="form-control" ref="title" placeholder="Enter A Movie Title ..." />
                 </div>
@@ -15,7 +15,13 @@ var SearchForm = React.createClass({
             </form>
         </div>
       )
-    }
+  },
+
+  onSubmit: function(e) {
+      e.preventDefault();
+
+      console.log(this.refs.title.value);
+  }
 });
 
 module.exports = SearchForm;
