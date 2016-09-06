@@ -19772,7 +19772,7 @@ var App = React.createClass({displayName: "App",
     render: function() {
       return(
         React.createElement("div", null, 
-            "My App"
+            React.createElement(SearchForm, null)
         )
       )
     }
@@ -19793,7 +19793,7 @@ var SearchForm = React.createClass({displayName: "SearchForm",
                 React.createElement("div", {className: "form-group"}, 
                     React.createElement("input", {type: "text", className: "form-control", ref: "title", placeholder: "Enter A Movie Title ..."})
                 ), 
-                React.createElement("button", {className: "btn btn-primary btn-block"}, "Search Movies")
+                React.createElement("button", {className: "btn btn-primary btn-block"}, "Search Movie")
             )
         )
       )
