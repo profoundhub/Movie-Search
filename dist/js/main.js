@@ -19856,17 +19856,17 @@ var Movie = React.createClass({displayName: "Movie",
       return(
         React.createElement("div", {className: "well"}, 
             React.createElement("div", {className: "row"}, 
-                React.createElement("div", {className: "col-md-5"}, 
+                React.createElement("div", {className: "col-md-4"}, 
                     React.createElement("h4", null, "Poster"), 
                     React.createElement("img", {className: "thumbnail", src: this.props.movie.Poster})
                 ), 
-                React.createElement("div", {className: "col-md-7"}, 
+                React.createElement("div", {className: "col-md-8"}, 
                     React.createElement("h4", null, React.createElement("strong", null, this.props.movie.Title)), 
                     React.createElement("ul", {className: "list-group"}, 
                         React.createElement("li", {className: "list-group-item"}, React.createElement("h5", null, "Year: ", this.props.movie.Year)), 
                         React.createElement("li", {className: "list-group-item"}, "IMDB ID: ", this.props.movie.imdbID)
                     ), 
-                    React.createElement("div", null, 
+                    React.createElement("div", {className: "col-lg-1 col-centered centered"}, 
                         React.createElement("a", {className: "btn btn-primary", href: link, target: "_blank"}, "View on IMDB")
                     )
                 )
