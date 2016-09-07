@@ -36,9 +36,9 @@ var App = React.createClass({
 
       return(
         <div>
-            <SearchForm />
-            <Footer />
+            <SearchForm />            
             { movieResults }
+            <Footer />
         </div>
       )
     },
