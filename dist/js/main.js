@@ -19781,8 +19781,8 @@ var React = require('react');
 var AppActions = require('../actions/AppActions');
 var AppStore = require('../stores/AppStores');
 var SearchForm = require('./SearchForm');
-var Footer = require('./Footer');
 var MovieResults = require('./MovieResults');
+var Footer = require('./Footer');
 
 function getAppState() {
     return {
@@ -19852,17 +19852,23 @@ var AppStore = require('../stores/AppStores');
 
 var Movie = React.createClass({displayName: "Movie",
     render: function() {
+      var link = 'http://www.imdb.com/title/' + this.props.movie.imdbID;
       return(
         React.createElement("div", {className: "well"}, 
             React.createElement("div", {className: "row"}, 
-                React.createElement("div", {className: "col-md-4"}, 
+                React.createElement("div", {className: "col-md-5"}, 
                     React.createElement("h4", null, "Poster"), 
                     React.createElement("img", {className: "thumbnail", src: this.props.movie.Poster})
                 ), 
-                React.createElement("div", {className: "col-md-8"}, 
-                    React.createElement("h4", null, "Title"), 
-                    React.createElement("h4", null, "Year"), 
-                    React.createElement("h4", null, "Type")
+                React.createElement("div", {className: "col-md-7"}, 
+                    React.createElement("h4", null, React.createElement("strong", null, this.props.movie.Title)), 
+                    React.createElement("ul", {className: "list-group"}, 
+                        React.createElement("li", {className: "list-group-item"}, React.createElement("h5", null, "Year: ", this.props.movie.Year)), 
+                        React.createElement("li", {className: "list-group-item"}, "IMDB ID: ", this.props.movie.imdbID)
+                    ), 
+                    React.createElement("div", null, 
+                        React.createElement("a", {className: "btn btn-primary", href: link, target: "_blank"}, "View on IMDB")
+                    )
                 )
             )
         )
