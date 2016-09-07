@@ -2,8 +2,8 @@ var React = require('react');
 var AppActions = require('../actions/AppActions');
 var AppStore = require('../stores/AppStores');
 var SearchForm = require('./SearchForm');
-var Footer = require('./Footer');
 var MovieResults = require('./MovieResults');
+var Footer = require('./Footer');
 
 function getAppState() {
     return {
@@ -36,7 +36,7 @@ var App = React.createClass({
 
       return(
         <div>
-            <SearchForm />            
+            <SearchForm />
             { movieResults }
             <Footer />
         </div>

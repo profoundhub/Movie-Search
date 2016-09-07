@@ -19781,8 +19781,8 @@ var React = require('react');
 var AppActions = require('../actions/AppActions');
 var AppStore = require('../stores/AppStores');
 var SearchForm = require('./SearchForm');
-var Footer = require('./Footer');
 var MovieResults = require('./MovieResults');
+var Footer = require('./Footer');
 
 function getAppState() {
     return {
@@ -19860,9 +19860,14 @@ var Movie = React.createClass({displayName: "Movie",
                     React.createElement("img", {className: "thumbnail", src: this.props.movie.Poster})
                 ), 
                 React.createElement("div", {className: "col-md-8"}, 
-                    React.createElement("h4", null, "Title"), 
-                    React.createElement("h4", null, "Year"), 
-                    React.createElement("h4", null, "Type")
+                    React.createElement("h4", null, "Title: ", this.props.movie.Title), 
+                    React.createElement("ul", {className: "list-group"}, 
+                        React.createElement("li", {className: "list-group-item"}), 
+                            React.createElement("h5", null, "Year"), 
+                        React.createElement("li", {className: "list-group-item"}), 
+                            React.createElement("h5", null, "Type"), 
+                        React.createElement("li", {className: "list-group-item"}, "IMDB ID: ", this.props.movie.imdbID)
+                    )
                 )
             )
         )

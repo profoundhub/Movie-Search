@@ -12,9 +12,14 @@ var Movie = React.createClass({
                     <img className="thumbnail" src={this.props.movie.Poster} />
                 </div>
                 <div className="col-md-8">
-                    <h4>Title</h4>
-                    <h4>Year</h4>
-                    <h4>Type</h4>
+                    <h4>Title: {this.props.movie.Title}</h4>
+                    <ul className="list-group">
+                        <li className="list-group-item"></li>
+                            <h5>Year</h5>
+                        <li className="list-group-item"></li>
+                            <h5>Type</h5>
+                        <li className="list-group-item">IMDB ID: {this.props.movie.imdbID}</li>
+                    </ul>
                 </div>
             </div>
         </div>
