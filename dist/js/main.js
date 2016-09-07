@@ -19759,6 +19759,7 @@ var AppConstants = require('../constants/AppConstants');
 
 var AppActions = {
     searchMovies: function(movie) {
+        console.log('Searching for movie: ' + movie.title);
         // console.log('Searching for movie: ' + movie.title);
         AppDispatcher.handleViewAction({
             actionType: AppConstants.SEARCH_MOVIES,
@@ -19774,13 +19775,30 @@ var AppActions = require('../actions/AppActions');
 var AppStore = require('../stores/AppStores');
 var SearchForm = require('./SearchForm.js');
 
+function getAppState() {
+    return {
+
+    }
+}
 var App = React.createClass({displayName: "App",
+    componentDidMount: function() {
+        AppStore.addChangeListener(this._onChange);
+    },
+    componentWillUnMount: function() {
+        AppStore.removeChangeListener(this._onChange);
+    },
+
+
     render: function() {
       return(
         React.createElement("div", null, 
             React.createElement(SearchForm, null)
         )
       )
+    },
+
+    _onChange: function() {
+        this.setState(getAppState());
     }
 });
 
