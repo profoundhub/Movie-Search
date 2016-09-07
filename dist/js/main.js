@@ -19776,11 +19776,12 @@ var AppActions = {
 }
 
 module.exports = AppActions;
-},{"../constants/AppConstants":167,"../dispatcher/AppDispatcher":168}],165:[function(require,module,exports){
+},{"../constants/AppConstants":168,"../dispatcher/AppDispatcher":169}],165:[function(require,module,exports){
 var React = require('react');
 var AppActions = require('../actions/AppActions');
 var AppStore = require('../stores/AppStores');
 var SearchForm = require('./SearchForm.js');
+var Footer = require('./Footer.js');
 
 function getAppState() {
     return {
@@ -19814,7 +19815,7 @@ var App = React.createClass({displayName: "App",
 });
 
 module.exports = App;
-},{"../actions/AppActions":164,"../stores/AppStores":170,"./SearchForm.js":166,"react":163}],166:[function(require,module,exports){
+},{"../actions/AppActions":164,"../stores/AppStores":171,"./Footer.js":167,"./SearchForm.js":166,"react":163}],166:[function(require,module,exports){
 var React = require('react');
 var AppActions = require('../actions/AppActions');
 var AppStore = require('../stores/AppStores');
@@ -19847,12 +19848,30 @@ var SearchForm = React.createClass({displayName: "SearchForm",
 });
 
 module.exports = SearchForm;
-},{"../actions/AppActions":164,"../stores/AppStores":170,"react":163}],167:[function(require,module,exports){
+},{"../actions/AppActions":164,"../stores/AppStores":171,"react":163}],167:[function(require,module,exports){
+var React = require('react');
+
+var SearchForm = React.createClass({displayName: "SearchForm",
+  render: function() {
+    return(
+      React.createElement("div", null, 
+        React.createElement("footer", null, 
+          React.createElement("p", {class: "text-center"}, 
+            "© 2016 | Daniel Lim | Profound Ideation Inc. | All Rights Reserved"
+          )
+        )
+      )
+    )
+  }
+});
+
+module.exports = Footer;
+},{"react":163}],168:[function(require,module,exports){
 module.exports = {
   SEARCH_MOVIES : 'SEARCH_MOVIES',
   RECEIVE_MOVIE_RESULTS: 'RECEIVE_MOVIE_RESULTS'
 }
-},{}],168:[function(require,module,exports){
+},{}],169:[function(require,module,exports){
 var Dispatcher = require('flux').Dispatcher;
 var assign = require('object-assign');
 
@@ -19867,7 +19886,7 @@ var AppDispatcher = assign(new Dispatcher(), {
 });
 
 module.exports = AppDispatcher;
-},{"flux":29,"object-assign":32}],169:[function(require,module,exports){
+},{"flux":29,"object-assign":32}],170:[function(require,module,exports){
 var App = require('./components/App');
 var React = require('react');
 var ReactDOM = require('react-dom');
@@ -19877,7 +19896,7 @@ ReactDOM.render(
   React.createElement(App, null),
   document.getElementById('app')
 );
-},{"./components/App":165,"./utils/AppAPI.js":171,"react":163,"react-dom":34}],170:[function(require,module,exports){
+},{"./components/App":165,"./utils/AppAPI.js":172,"react":163,"react-dom":34}],171:[function(require,module,exports){
 var AppDispatcher = require('../dispatcher/AppDispatcher');
 var AppConstants = require('../constants/AppConstants');
 var EventEmitter = require('events').EventEmitter;
@@ -19918,7 +19937,7 @@ AppDispatcher.register(function(payload) {
 });
 
 module.exports = AppStore;
-},{"../constants/AppConstants":167,"../dispatcher/AppDispatcher":168,"../utils/AppAPI.js":171,"events":1,"object-assign":32}],171:[function(require,module,exports){
+},{"../constants/AppConstants":168,"../dispatcher/AppDispatcher":169,"../utils/AppAPI.js":172,"events":1,"object-assign":32}],172:[function(require,module,exports){
 var AppActions = require('../actions/AppActions');
 
 module.exports = {
@@ -19937,4 +19956,4 @@ module.exports = {
         });
     }
 }
-},{"../actions/AppActions":164}]},{},[169]);
+},{"../actions/AppActions":164}]},{},[170]);
