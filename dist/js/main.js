@@ -19785,22 +19785,25 @@ var Footer = require('./Footer');
 
 function getAppState() {
     return {
-
+        // getMovieResults : put movies into State!
+        movies: AppStore.getMovieResults()
     }
 }
 var App = React.createClass({displayName: "App",
     getInitialState: function() {
         return getAppState();
     },
+
     componentDidMount: function() {
         AppStore.addChangeListener(this._onChange);
     },
+
     componentWillUnMount: function() {
         AppStore.removeChangeListener(this._onChange);
     },
 
-
     render: function() {
+        console.log(this.state.movies);
       return(
         React.createElement("div", null, 
             React.createElement(SearchForm, null), 
@@ -19908,6 +19911,12 @@ var _movies = [];
 var _selected = '';
 
 var AppStore = assign({}, EventEmitter.prototype, {
+    setMovieResults: function(movies) {
+        _movies = movies;
+    },
+    getMovieResults: function() {
+        return _movies;
+    },
     emitChange: function() {
       this.emit(CHANGE_EVENT);
     },
@@ -19930,7 +19939,7 @@ AppDispatcher.register(function(payload) {
             break;
         case AppConstants.RECEIVE_MOVIE_RESULTS:
             // console.log('Searching for movie: '+ action.movie.title);
-
+            AppStore.setMovieResults(action.movies);
             AppStore.emit(CHANGE_EVENT);
             break;
         default:
