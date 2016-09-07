@@ -42,7 +42,7 @@ AppDispatcher.register(function(payload) {
             AppStore.emit(CHANGE_EVENT);
             break;
         default:
-        return " ";
+        return "";
     }
 
     return true;

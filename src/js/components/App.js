@@ -3,6 +3,7 @@ var AppActions = require('../actions/AppActions');
 var AppStore = require('../stores/AppStores');
 var SearchForm = require('./SearchForm');
 var Footer = require('./Footer');
+var MovieResults = require('./MovieResults');
 
 function getAppState() {
     return {
@@ -29,6 +30,7 @@ var App = React.createClass({
         <div>
             <SearchForm />
             <Footer />
+            <MovieResults />
         </div>
       )
     },
