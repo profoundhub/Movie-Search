@@ -19861,15 +19861,14 @@ var Movie = React.createClass({displayName: "Movie",
                     React.createElement("img", {className: "thumbnail", src: this.props.movie.Poster})
                 ), 
                 React.createElement("div", {className: "col-md-7"}, 
-                    React.createElement("h4", null, "Title: ", this.props.movie.Title), 
+                    React.createElement("h4", null, React.createElement("strong", null, this.props.movie.Title)), 
                     React.createElement("ul", {className: "list-group"}, 
-                        React.createElement("li", {className: "list-group-item"}, this.props.movie.Type), 
-                            React.createElement("h5", null, "Year"), 
-                        React.createElement("li", {className: "list-group-item"}, this.props.movie.Year), 
-                            React.createElement("h5", null, "Type"), 
+                        React.createElement("li", {className: "list-group-item"}, React.createElement("h5", null, "Year: ", this.props.movie.Year)), 
                         React.createElement("li", {className: "list-group-item"}, "IMDB ID: ", this.props.movie.imdbID)
                     ), 
-                    React.createElement("a", {className: "btn btn-primary", href: link}, "View ", this.props.movie.Title, " on IMDB")
+                    React.createElement("div", null, 
+                        React.createElement("a", {className: "btn btn-primary", href: link, target: "_blank"}, "View on IMDB")
+                    )
                 )
             )
         )

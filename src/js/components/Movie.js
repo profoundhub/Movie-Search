@@ -13,15 +13,14 @@ var Movie = React.createClass({
                     <img className="thumbnail" src={this.props.movie.Poster} />
                 </div>
                 <div className="col-md-7">
-                    <h4>Title: {this.props.movie.Title}</h4>
+                    <h4><strong>{this.props.movie.Title}</strong></h4>
                     <ul className="list-group">
-                        <li className="list-group-item">{this.props.movie.Type}</li>
-                            <h5>Year</h5>
-                        <li className="list-group-item">{this.props.movie.Year}</li>
-                            <h5>Type</h5>
+                        <li className="list-group-item"><h5>Year: {this.props.movie.Year}</h5></li>
                         <li className="list-group-item">IMDB ID: {this.props.movie.imdbID}</li>
                     </ul>
-                    <a className="btn btn-primary" href={link}>View {this.props.movie.Title} on IMDB</a>
+                    <div>
+                        <a className="btn btn-primary" href={link} target="_blank">View on IMDB</a>
+                    </div>
                 </div>
             </div>
         </div>
