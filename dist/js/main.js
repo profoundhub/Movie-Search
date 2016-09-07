@@ -19765,7 +19765,14 @@ var AppActions = {
             actionType: AppConstants.SEARCH_MOVIES,
             movie: movie
         });
-    }
+    },
+    receiveMovieResults: function(movies) {
+        console.log(movies);
+        AppDispatcher.handleViewAction({
+            actionType: AppConstants.RECEIVE_MOVIE_RESULTS,
+            movies: movies
+    });
+  }
 }
 
 module.exports = AppActions;
@@ -19795,7 +19802,8 @@ var App = React.createClass({displayName: "App",
     render: function() {
       return(
         React.createElement("div", null, 
-            React.createElement(SearchForm, null)
+            React.createElement(SearchForm, null), 
+            React.createElement(Footer, null)
         )
       )
     },
@@ -19841,7 +19849,8 @@ var SearchForm = React.createClass({displayName: "SearchForm",
 module.exports = SearchForm;
 },{"../actions/AppActions":164,"../stores/AppStores":170,"react":163}],167:[function(require,module,exports){
 module.exports = {
-  SEARCH_MOVIES : 'SEARCH_MOVIES'
+  SEARCH_MOVIES : 'SEARCH_MOVIES',
+  RECEIVE_MOVIE_RESULTS: 'RECEIVE_MOVIE_RESULTS'
 }
 },{}],168:[function(require,module,exports){
 var Dispatcher = require('flux').Dispatcher;
@@ -19914,7 +19923,18 @@ var AppActions = require('../actions/AppActions');
 
 module.exports = {
     searchMovies: function(movie) {
-
+        // ajax
+        $.ajax({
+            url: 'http://www.omdbapi.com/?s='+movie.title,
+            dataType: 'json',
+            cache: false,
+            success: function(data) {
+                AppActions.receiveMovieResults(data.Search);
+            }.bind(this),
+            error: function(xhr, status, err) {
+                alert(err);
+            }.bind(this)
+        });
     }
 }
 },{"../actions/AppActions":164}]},{},[169]);
