@@ -1,12 +1,12 @@
 var React = require('react');
 var AppActions = require('../actions/AppActions');
 var AppStore = require('../stores/AppStores');
-var SearchForm = require('./SearchForm.js');
-var Footer = require('./Footer.js');
+var SearchForm = require('./SearchForm');
+var Footer = require('./Footer');
 
 function getAppState() {
     return {
-
+        // getMovieResults
     }
 }
 var App = React.createClass({

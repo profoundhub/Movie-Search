@@ -19780,8 +19780,8 @@ module.exports = AppActions;
 var React = require('react');
 var AppActions = require('../actions/AppActions');
 var AppStore = require('../stores/AppStores');
-var SearchForm = require('./SearchForm.js');
-var Footer = require('./Footer.js');
+var SearchForm = require('./SearchForm');
+var Footer = require('./Footer');
 
 function getAppState() {
     return {
@@ -19815,7 +19815,24 @@ var App = React.createClass({displayName: "App",
 });
 
 module.exports = App;
-},{"../actions/AppActions":164,"../stores/AppStores":171,"./Footer.js":167,"./SearchForm.js":166,"react":163}],166:[function(require,module,exports){
+},{"../actions/AppActions":164,"../stores/AppStores":171,"./Footer":166,"./SearchForm":167,"react":163}],166:[function(require,module,exports){
+var React = require('react');
+
+var Footer = React.createClass({displayName: "Footer",
+  render: function() {
+    return(
+      React.createElement("div", null, 
+        React.createElement("br", null), React.createElement("hr", null), React.createElement("br", null), 
+        React.createElement("footer", {className: "well"}, 
+          React.createElement("p", {className: "text-center"}, "© 2016 -- Daniel Lim | Profound Ideation Inc. | All Rights Reserved")
+        )
+      )
+    )
+  }
+});
+
+module.exports = Footer;
+},{"react":163}],167:[function(require,module,exports){
 var React = require('react');
 var AppActions = require('../actions/AppActions');
 var AppStore = require('../stores/AppStores');
@@ -19848,28 +19865,7 @@ var SearchForm = React.createClass({displayName: "SearchForm",
 });
 
 module.exports = SearchForm;
-},{"../actions/AppActions":164,"../stores/AppStores":171,"react":163}],167:[function(require,module,exports){
-var React = require('react');
-
-var Footer = React.createClass({displayName: "Footer",
-  render: function() {
-    return(
-      React.createElement("div", null, 
-        React.createElement("p", null, React.createElement("hr", null)), 
-          React.createElement("div", {className: "well"}, 
-            React.createElement("footer", null, 
-              React.createElement("p", {className: "text-center"}, 
-                "© 2016 -- Daniel Lim | Profound Ideation Inc. | All Rights Reserved"
-              )
-            )
-          )
-      )
-    )
-  }
-});
-
-module.exports = Footer;
-},{"react":163}],168:[function(require,module,exports){
+},{"../actions/AppActions":164,"../stores/AppStores":171,"react":163}],168:[function(require,module,exports){
 module.exports = {
   SEARCH_MOVIES : 'SEARCH_MOVIES',
   RECEIVE_MOVIE_RESULTS: 'RECEIVE_MOVIE_RESULTS'
@@ -19932,8 +19928,13 @@ AppDispatcher.register(function(payload) {
             AppAPI.searchMovies(action.movie);
             AppStore.emit(CHANGE_EVENT);
             break;
+        case AppConstants.RECEIVE_MOVIE_RESULTS:
+            // console.log('Searching for movie: '+ action.movie.title);
+
+            AppStore.emit(CHANGE_EVENT);
+            break;
         default:
-        return movie.title;
+        return " ";
     }
 
     return true;
