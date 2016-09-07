@@ -3,6 +3,7 @@ var AppActions = require('../actions/AppActions');
 var AppStore = require('../stores/AppStores');
 var SearchForm = require('./SearchForm');
 var Footer = require('./Footer');
+var MovieResults = require('./MovieResults');
 
 function getAppState() {
     return {
@@ -24,11 +25,20 @@ var App = React.createClass({
     },
 
     render: function() {
-        console.log(this.state.movies);
+        // console.log(this.state.movies);
+
+        if (this.state.movies == '') {
+            var movieResults = '';
+
+        } else {
+            var movieResults = <MovieResults movies={this.state.movies} />
+        }
+
       return(
         <div>
             <SearchForm />
             <Footer />
+            { movieResults }
         </div>
       )
     },
