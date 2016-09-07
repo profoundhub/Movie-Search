@@ -19898,6 +19898,7 @@ AppDispatcher.register(function(payload) {
     switch (action.actionType) {
         case AppConstants.SEARCH_MOVIES:
             console.log('Searching for movie: '+ action.movie.title);
+            AppAPI.searchMovies(action.movie);
             AppStore.emit(CHANGE_EVENT);
             break;
         default:
