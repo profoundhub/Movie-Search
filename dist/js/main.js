@@ -19851,15 +19851,18 @@ module.exports = SearchForm;
 },{"../actions/AppActions":164,"../stores/AppStores":171,"react":163}],167:[function(require,module,exports){
 var React = require('react');
 
-var SearchForm = React.createClass({displayName: "SearchForm",
+var Footer = React.createClass({displayName: "Footer",
   render: function() {
     return(
       React.createElement("div", null, 
-        React.createElement("footer", null, 
-          React.createElement("p", {class: "text-center"}, 
-            "© 2016 | Daniel Lim | Profound Ideation Inc. | All Rights Reserved"
+        React.createElement("p", null, React.createElement("hr", null)), 
+          React.createElement("div", {className: "well"}, 
+            React.createElement("footer", null, 
+              React.createElement("p", {className: "text-center"}, 
+                "© 2016 -- Daniel Lim | Profound Ideation Inc. | All Rights Reserved"
+              )
+            )
           )
-        )
       )
     )
   }
