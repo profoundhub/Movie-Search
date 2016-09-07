@@ -24,6 +24,7 @@ var App = React.createClass({
       return(
         <div>
             <SearchForm />
+            <Footer />
         </div>
       )
     },
