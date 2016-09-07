@@ -11,7 +11,7 @@ function getAppState() {
 var App = React.createClass({
     getInitialState: function() {
         return getAppState();
-    }
+    },
     componentDidMount: function() {
         AppStore.addChangeListener(this._onChange);
     },
