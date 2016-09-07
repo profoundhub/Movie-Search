@@ -10,6 +10,12 @@ var _movies = [];
 var _selected = '';
 
 var AppStore = assign({}, EventEmitter.prototype, {
+    setMovieResults: function(movies) {
+        _movies = movies;
+    }
+    getMovieResults: function() {
+        return _movies;
+    }
     emitChange: function() {
       this.emit(CHANGE_EVENT);
     },
@@ -30,8 +36,13 @@ AppDispatcher.register(function(payload) {
             AppAPI.searchMovies(action.movie);
             AppStore.emit(CHANGE_EVENT);
             break;
+        case AppConstants.RECEIVE_MOVIE_RESULTS:
+            // console.log('Searching for movie: '+ action.movie.title);
+            AppStore.setMovieResults(action.movies);
+            AppStore.emit(CHANGE_EVENT);
+            break;
         default:
-        return movie.title;
+        return " ";
     }
 
     return true;
