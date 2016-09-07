@@ -19804,12 +19804,20 @@ var App = React.createClass({displayName: "App",
     },
 
     render: function() {
-        console.log(this.state.movies);
+        // console.log(this.state.movies);
+
+        if (this.state.movies == '') {
+            var movieResults = '';
+
+        } else {
+            var movieResults = React.createElement(MovieResults, {movies: this.state.movies})
+        }
+
       return(
         React.createElement("div", null, 
             React.createElement(SearchForm, null), 
             React.createElement(Footer, null), 
-            React.createElement(MovieResults, null)
+             movieResults 
         )
       )
     },
@@ -19846,7 +19854,7 @@ var MovieResults = React.createClass({displayName: "MovieResults",
     render: function() {
       return(
         React.createElement("div", null, 
-            "Movie Results"
+            "// Movie Results"
         )
       )
     }

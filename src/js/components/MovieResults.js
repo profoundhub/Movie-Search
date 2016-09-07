@@ -6,7 +6,14 @@ var MovieResults = React.createClass({
     render: function() {
       return(
         <div>
-            Movie Results
+            <h3 className="text=center">Movie Results</h3>
+                {
+                    this.props.movies.map(function(movie, index)
+                        return(
+                            
+                        )
+                    )
+                }
         </div>
       )
     }
