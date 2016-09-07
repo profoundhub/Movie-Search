@@ -7,7 +7,7 @@ var Footer = require('./Footer');
 function getAppState() {
     return {
         // getMovieResults : put movies into State!
-        movies: AppStore.getMovieResults();
+        movies: AppStore.getMovieResults()
     }
 }
 var App = React.createClass({
