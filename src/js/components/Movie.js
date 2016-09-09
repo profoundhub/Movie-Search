@@ -22,6 +22,12 @@ var httpsUrl = "https" + httpUrl.substring(4);
 // to
 // {httpsUrl}
 
+// ie. https://ia.media-imdb.com/images/M/MV5BMTQxNTA1Njk3MF5BMl5BanBnXkFtZTcwMjI4NjUyMQ@@._V1_SX300.jpg
+// vs 403:
+
+// ie. 2: https://ia.media-imdb.com/images/M/MV5BODkxMDg0MjM2OF5BMl5BanBnXkFtZTcwMjc0NTU4MQ@@._V1_SX300.jpg
+// vs 403: (req. refresh): https://ia.media-imdb.com/images/M/MV5BODkxMDg0MjM2OF5BMl5BanBnXkFtZTcwMjc0NTU4MQ@@._V1_SX300.jpg
+
       var link = 'https://www.imdb.com/title/' + this.props.movie.imdbID;
       return(
         <div className="well">
