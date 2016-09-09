@@ -19852,7 +19852,7 @@ var AppStore = require('../stores/AppStores');
 
 var Movie = React.createClass({displayName: "Movie",
     render: function() {
-      var link = '//www.imdb.com/title/' + this.props.movie.imdbID;
+      var link = 'https://www.imdb.com/title/' + this.props.movie.imdbID;
       return(
         React.createElement("div", {className: "well"}, 
             React.createElement("div", {className: "row"}, 
@@ -20022,7 +20022,7 @@ module.exports = {
     searchMovies: function(movie) {
         // ajax
         $.ajax({
-            url: 'http://www.omdbapi.com/?s='+movie.title,
+            url: 'https://www.omdbapi.com/?s='+movie.title,
             dataType: 'json',
             cache: false,
             success: function(data) {
