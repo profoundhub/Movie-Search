@@ -12,7 +12,8 @@ var port = process.env.PORT || 5000;
 app.use(express.static(__dirname + '/'));
 
 // views is directory for all template files
-app.set('dist', __dirname + '/');
+// app.set('dist', __dirname + '/');
+app.set('views', __dirname + '/dist');
 
 // set the view engine to php
 // app.set('view engine', 'php');
