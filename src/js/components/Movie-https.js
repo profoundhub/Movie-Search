@@ -18,6 +18,7 @@ var Movie = React.createClass({
         // 2 {this.movie.Poster}
 var httpUrl = this.props.movie.Poster;
 var httpsUrl = "https" + httpUrl.substring(4);
+
 // {this.props.movie.Poster}
 // to
 // {httpsUrl}
