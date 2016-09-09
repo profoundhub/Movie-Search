@@ -11,7 +11,8 @@ module.exports = {
                 AppActions.receiveMovieResults(data.Search);
             }.bind(this),
             error: function(xhr, status, err) {
-                alert(err);
+                // alert(err);
+                console.error(this.props.url, status, err.toString());
             }.bind(this)
         });
     }
