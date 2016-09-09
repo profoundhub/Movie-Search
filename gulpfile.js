@@ -11,7 +11,7 @@ gulp.task('browserify', function() {
 });
 
 gulp.task('copy', function() {
-  gulp.src('src/index.html')
+  gulp.src('src/index.ejs')
     .pipe(gulp.dest('dist'));
   gulp.src('src/css/*.*')
     .pipe(gulp.dest('dist/css'));

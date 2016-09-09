@@ -4,6 +4,7 @@
   "description": "a Simple Movie Search and Finder",
   "main": "index.js",
   "scripts": {
+    "start" : "node ./dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,6 +25,9 @@
   ],
   "author": "Daniel Lim",
   "license": "ISC",
+  "engines": {
+    "node": "*"
+  },
   "devDependencies": {
       "browserify": "*",
       "flux": "*",
@@ -34,7 +38,9 @@
   },
   "dependencies": {
     "react" : "^0.14.7",
-    "react-dom" : "^0.14.7"
+    "react-dom" : "^0.14.7",
+    "ejs": "2.4.1",
+    "express": "4.13.3"
   },
   "bugs": {
     "url": "https://github.com/profoundhub/Movie-Search/issues"
