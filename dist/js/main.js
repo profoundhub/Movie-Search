@@ -19759,6 +19759,7 @@ var AppConstants = require('../constants/AppConstants');
 
 var AppActions = {
     searchMovies: function(movie) {
+        console.log('Searching for movie: ' + movie.title);
         // console.log('Searching for movie: ' + movie.title);
         AppDispatcher.handleViewAction({
             actionType: AppConstants.SEARCH_MOVIES,
@@ -19997,12 +19998,12 @@ AppDispatcher.register(function(payload) {
 
     switch (action.actionType) {
         case AppConstants.SEARCH_MOVIES:
-            // console.log('Searching for this movie: '+ action.movie.title);
+            console.log('Searching for movie: '+ action.movie.title);
             AppAPI.searchMovies(action.movie);
             AppStore.emit(CHANGE_EVENT);
             break;
         case AppConstants.RECEIVE_MOVIE_RESULTS:
-            // console.log('Search Results for this movie: '+ action.movie.title);
+            // console.log('Searching for movie: '+ action.movie.title);
             AppStore.setMovieResults(action.movies);
             AppStore.emit(CHANGE_EVENT);
             break;
