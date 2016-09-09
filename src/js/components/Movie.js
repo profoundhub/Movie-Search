@@ -18,6 +18,9 @@ var Movie = React.createClass({
         // 2 {this.movie.Poster}
 var httpUrl = this.props.movie.Poster;
 var httpsUrl = "https" + httpUrl.substring(4);
+// {this.props.movie.Poster}
+// to
+// {httpsUrl}
 
       var link = 'https://www.imdb.com/title/' + this.props.movie.imdbID;
       return(
@@ -25,10 +28,11 @@ var httpsUrl = "https" + httpUrl.substring(4);
             <div className="row">
                 <div className="col-md-5">
                     <h4>Poster</h4>
-                    <img className="thumbnail" src={this.props.movie.Poster} />
+                    <img className="thumbnail" src={httpsUrl} />
 
-// {this.props.movie.Poster}
-{httpsUrl}
+
+
+
 
                 </div>
                 <div className="col-md-7">
