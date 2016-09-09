@@ -19808,7 +19808,6 @@ var App = React.createClass({displayName: "App",
 
         if (this.state.movies == '') {
             var movieResults = '';
-
         } else {
             var movieResults = React.createElement(MovieResults, {movies: this.state.movies})
         }
@@ -19852,13 +19851,32 @@ var AppStore = require('../stores/AppStores');
 
 var Movie = React.createClass({displayName: "Movie",
     render: function() {
+
+        if (this.props.movie.Poster == '') {
+            var moviePosterResults = '';
+        } else {
+            var moviePosterResults = "";
+        }
+
+        // console.log("1.", this.props.movie.Poster);
+        // console.log("2.", this.movie.Poster);
+
+        // 1 {this.props.movie.Poster}
+        // 2 {this.movie.Poster}
+var httpUrl = this.props.movie.Poster;
+var httpsUrl = "https" + httpUrl.substring(4);
+
       var link = 'https://www.imdb.com/title/' + this.props.movie.imdbID;
       return(
         React.createElement("div", {className: "well"}, 
             React.createElement("div", {className: "row"}, 
                 React.createElement("div", {className: "col-md-5"}, 
                     React.createElement("h4", null, "Poster"), 
-                    React.createElement("img", {className: "thumbnail", src: this.props.movie.Poster})
+                    React.createElement("img", {className: "thumbnail", src: this.props.movie.Poster}), 
+
+"// ", this.props.movie.Poster, 
+httpsUrl
+
                 ), 
                 React.createElement("div", {className: "col-md-7"}, 
                     React.createElement("h4", null, React.createElement("strong", null, this.props.movie.Title)), 
@@ -20029,7 +20047,8 @@ module.exports = {
                 AppActions.receiveMovieResults(data.Search);
             }.bind(this),
             error: function(xhr, status, err) {
-                alert(err);
+                // alert(err);
+                console.error(this.props.url, status, err.toString());
             }.bind(this)
         });
     }
