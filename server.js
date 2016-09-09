@@ -9,11 +9,13 @@ app.set('port', (process.env.PORT || 5000), function(){
 // process.env.PORT lets the port be set by Heroku
 var port = process.env.PORT || 5000;
 
-app.use(express.static(__dirname + '/'));
+app.use(express.static(__dirname + '/dist/'));
 
 // views is directory for all template files
 // app.set('dist', __dirname + '/');
-app.set('views', __dirname + '/dist');
+// app.set('views', __dirname + './dist');
+app.set('views', './dist/');
+// app.set('views','./folder1/folder2/views');
 
 // set the view engine to php
 // app.set('view engine', 'php');
