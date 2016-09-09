@@ -19852,40 +19852,13 @@ var AppStore = require('../stores/AppStores');
 var Movie = React.createClass({displayName: "Movie",
     render: function() {
 
-        if (this.props.movie.Poster == '') {
-            var moviePosterResults = '';
-        } else {
-            var moviePosterResults = "";
-        }
-
-        // console.log("1.", this.props.movie.Poster);
-        // console.log("2.", this.movie.Poster);
-
-        // 1 {this.props.movie.Poster}
-        // 2 {this.movie.Poster}
-var httpUrl = this.props.movie.Poster;
-var httpsUrl = "https" + httpUrl.substring(4);
-// {this.props.movie.Poster}
-// to
-// {httpsUrl}
-
-// ie. https://ia.media-imdb.com/images/M/MV5BMTQxNTA1Njk3MF5BMl5BanBnXkFtZTcwMjI4NjUyMQ@@._V1_SX300.jpg
-// vs 403:
-
-// ie. 2: https://ia.media-imdb.com/images/M/MV5BODkxMDg0MjM2OF5BMl5BanBnXkFtZTcwMjc0NTU4MQ@@._V1_SX300.jpg
-// vs 403: (req. refresh): https://ia.media-imdb.com/images/M/MV5BODkxMDg0MjM2OF5BMl5BanBnXkFtZTcwMjc0NTU4MQ@@._V1_SX300.jpg
-
       var link = 'https://www.imdb.com/title/' + this.props.movie.imdbID;
       return(
         React.createElement("div", {className: "well"}, 
             React.createElement("div", {className: "row"}, 
                 React.createElement("div", {className: "col-md-5"}, 
                     React.createElement("h4", null, "Poster"), 
-                    React.createElement("img", {className: "thumbnail", src: httpsUrl})
-
-
-
-
+                    React.createElement("img", {className: "thumbnail", src: this.props.movie.Poster})
 
                 ), 
                 React.createElement("div", {className: "col-md-7"}, 
