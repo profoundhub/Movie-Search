@@ -1,118 +1,50 @@
-const leaderboard = document.getElementById("leaderboard");
+var React = require('react');
+var AppActions = require('../actions/AppActions');
+var AppStore = require('../stores/AppStores');
+var SearchForm = require('./SearchForm');
+var MovieResults = require('./MovieResults');
+var Footer = require('./Footer');
 
-let daniel = "http://www.freecodecamp.com/profoundhub";
-let recent = "https://fcctop100.herokuapp.com/api/fccusers/top/recent";
-let alltime = "https://fcctop100.herokuapp.com/api/fccusers/top/alltime";
-
-var TableTop = React.createClass({
-  change: function(x) {
-    this.props.changeSrc(x);
-  },
-
-  render: function() {
-    return (
-      <tr id="header">
-        <th>Rank</th>
-        <th>Avatar</th>
-        <th>UserName</th>
-        <th onClick = { this.change.bind(this, alltime) }>
-          <i className="fa fa-check" aria-hidden="true"></i>
-            <a className="hvr-pulse">All Time</a>
-        </th>
-        <th onClick = { this.change.bind(this, recent) }>
-          <i className="fa fa-check" aria-hidden="true"></i>
-            <a className="hvr-pulse">Recent</a>
-        </th>
-      </tr>
-    );
-  }
-});
-
-var Template = React.createClass({
-  render: function() {
-    return (
-      <tr>
-        <td>
-          { this.props.index }
-        </td>
-        <td>
-          <p>
-            <img src={ this.props.data["img"] } />
-          </p>
-        </td>
-        <td>
-          <p>
-            { this.props.data["username"] }
-          </p>
-        </td>
-        <td>
-          <p>
-            { this.props.data["alltime"] }
-          </p>
-        </td>
-        <td>
-          <p>
-            { this.props.data["recent"] }
-          </p>
-        </td>
-      </tr>
-    );
-  }
-});
-
-var LeaderBoard = React.createClass({
-  getInitialState: function() {
+function getAppState() {
     return {
-      source: recent,
-      data: [],
-    };
-  },
+        // getMovieResults : put movies into State!
+        movies: AppStore.getMovieResults()
+    }
+}
+var App = React.createClass({
+    getInitialState: function() {
+        return getAppState();
+    },
 
-  componentDidMount: function() {
-    this.changeSrc(this.state.source);
-  },
+    componentDidMount: function() {
+        AppStore.addChangeListener(this._onChange);
+    },
 
-  changeSrc: function(x) {
-    this.serverRequest = $.get(x, function (result) {
-      this.setState({
-        data: result
-      });
-    }.bind(this));
-  },
+    componentWillUnMount: function() {
+        AppStore.removeChangeListener(this._onChange);
+    },
 
-  render: function() {
-    return (
-      <div>
-        <h1 className="center-this">Build an FCC Camper Leaderboard!</h1>
-          <table>
-            <TableTop changeSrc = { this.changeSrc.bind(this) } />
-            {
-              this.state.data.map(function(curr, index) {
-                return <Template index = { index + 1 } data = { curr } />;
-              })
-            }
-          </table>
-      </div>
-    );
-  }
+    render: function() {
+        // console.log(this.state.movies);
+
+        if (this.state.movies == '') {
+            var movieResults = '';
+        } else {
+            var movieResults = <MovieResults movies={this.state.movies} />
+        }
+
+      return(
+        <div>
+            <SearchForm />
+            { movieResults }
+            <Footer />
+        </div>
+      )
+    },
+
+    _onChange: function() {
+        this.setState(getAppState());
+    }
 });
 
-var Footer = React.createClass({
-  render: function() {
-    return(
-      <div>
-        <br /><hr /><br />
-        <footer className="well">
-          <p className="text-center">&copy; 2016 -- Daniel Lim | Profound Ideation Inc. | All Rights Reserved</p>
-        </footer>
-      </div>
-    )
-  }
-});
-
-ReactDOM.render(
-  <div>
-    <LeaderBoard />
-    <Footer />
-  </div>, leaderboard
-);
+module.exports = App;
